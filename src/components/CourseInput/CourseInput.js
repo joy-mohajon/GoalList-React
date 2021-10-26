@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../UI/Button/Button";
 
 import "./CourseInput.css";
 
@@ -26,21 +27,11 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={onSubmitGoalHandler}>
-      <div className="form-control">
-        <label style={{ color: !isValid ? "red" : "black" }}>
-          Today's Goal
-        </label>
-        <input
-          style={{
-            borderColor: !isValid ? "red" : "black",
-            background: !isValid ? "salmon" : "transparent",
-          }}
-          type="text"
-          value={enteredGoal}
-          onChange={onChangeGoalHandler}
-        />
+      <div className={`form-control ${!isValid ? "invalid" : ""}`}>
+        <label>Today's Goal</label>
+        <input type="text" value={enteredGoal} onChange={onChangeGoalHandler} />
       </div>
-      <button type="submit">Add Goal</button>
+      <Button type="submit">Add Goal</Button>
     </form>
   );
 };
